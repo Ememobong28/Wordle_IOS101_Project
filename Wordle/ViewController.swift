@@ -31,6 +31,17 @@ class ViewController: UIViewController {
      */
     // START YOUR CODE HERE
     // ...
+      keyboardController.didSelectString = { [weak self] selectedString in
+          guard let self = self else { return }
+          
+          if selectedString == DELETE_KEY {
+            // Call deleteLastCharacter if the DELETE_KEY is pressed
+            self.boardController.deleteLastCharacter()
+          } else {
+            // Otherwise, enter the selected string
+            self.boardController.enter(selectedString)
+          }
+        }
     // END YOUR CODE HERE
   }
 }
